@@ -20,7 +20,7 @@ $ python run.py --config_path=configs/gpt2_rotated_train.json --save_dir=out_dir
 
 You can use the following command to estimate the 1-1 norm of the Hessian of a trained GPT2 model:
 ```
-$ python gpt2_evaluate.py --config_path=configs/gpt2_eval.json --load_dir=out_dir --save_dir=eval_dir
+$ python run_jax.py --config_path=configs/gpt2_eval.json --load_dir=out_dir --save_dir=eval_dir
 ```
 
 ## A few notes
