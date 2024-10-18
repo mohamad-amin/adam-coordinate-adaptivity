@@ -1,0 +1,48 @@
+data:
+  seed: 1337
+  name: openwebtext
+  preload_data: true
+
+model:
+  compile: true
+  rotate: true
+  rotations: [randperm_2]
+  init: scratch
+  n_layer: 12
+  n_head: 12
+  n_embd: 768
+  bias: false
+  dropout: 0.0
+  dtype: float16
+
+train:
+  active: true
+  max_iters: 100000
+  grad_clip: 1.0
+  weight_decay: 0.
+  manual_rotate_investigation: false
+  manual_investigation: false
+  batch:
+    size: 12
+    block: 1024
+    gradient_accumulation_steps: 40
+  lr:
+    max: 1.8E-3
+    min: 1.8E-4
+    decay: true
+    warmup_iters: 2000
+    decay_iters: 100000
+  optimizer:
+    name: adamw
+    beta1: 0.9
+    beta2: 0.95
+
+eval:
+  interval: 1000
+  iters: 200
+
+log:
+  save_interval: 1000
+  log_interval: 1
+  always_save_checkpoint: true
+  enable_wandb: true
