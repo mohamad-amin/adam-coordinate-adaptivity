@@ -1,5 +1,5 @@
 
-# NanoGPT
+# Adam Exploits ℓ∞-geometry of Loss Landscape via Coordinate-wise Adaptivity
 This repository contains the code used to train GPT2 and evaluate different metrics on its hessian in the paper ["Adam Exploits ℓ∞-geometry of Loss Landscape
 via Coordinate-wise Adaptivity"](https://arxiv.org/pdf/2410.08198). We use [nanoGPT](https://github.com/karpathy/nanoGPT)'s code as the base for training GPT2. We have used [JAX](https://github.com/jax-ml/jax) to implement the Hessian-related computations by transferring the learnt GPT2 models to a [Flax](https://github.com/google/flax) based GPT2 implementation, borrowed from [HuggingFace's transformers](https://github.com/huggingface/transformers) package. 
 
@@ -22,6 +22,7 @@ You can use the following command to estimate the 1-1 norm of the Hessian of a t
 ```
 $ python run_jax.py --config_path=configs/gpt2_evaluate.json --load_dir=out_dir --save_dir=eval_dir
 ```
+To evaluate the top eigenvalue, change `hessian.task` in `configs/gpt2_evaluate.yml` from `compute_11_norm` to `compute_eigvals`.
 
 ## A few notes
 * Flash attention is disabled by default. This is to achieve better numerical precision in both training and evaluation.
