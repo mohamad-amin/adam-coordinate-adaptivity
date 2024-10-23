@@ -18,10 +18,10 @@ model:
   #init_iter: 50000
 
 hessian:
-  task: compute_11_norm
+  task: compute_11_norm  # change to "compute_fro_norm" or "compute_eigvals" 
   num_cauchy_vecs: 50
-  num_fro_vecs: 15
-  num_power_iters: 8
+  num_fro_vecs: 50
+  num_power_iters: 50
   rotated_evaluation: false
   use_train_rotations: false
   rotations: []
