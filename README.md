@@ -26,7 +26,7 @@ To evaluate the top eigenvalue, change `hessian.task` in `configs/gpt2_evaluate.
 
 ## A few notes
 * Flash attention is disabled by default. This is to achieve better numerical precision in both training and evaluation.
-* Computing Hessian-related metrics would require a significant amount of GPU RAM. For the configs available in this repo, a A100 GPU with 40GB of GPU RAM is sufficient. However, the more the merrier.
+* Computing Hessian-related metrics would require a significant amount of GPU RAM. For the configs available in this repo, an A100 GPU with 40GB of GPU RAM is sufficient. However, the more the merrier.
 
 ## Citation
 If you find this code useful, please consider citing our paper:
