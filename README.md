@@ -7,20 +7,20 @@ via Coordinate-wise Adaptivity"](https://arxiv.org/pdf/2410.08198). We use [nano
 You can use the following command to train a GPT2 model on the OpenWebText dataset:
 
 ```
-$ python run.py --config_path=configs/gpt2_train.json --save_dir=out_dir
+$ torchrun --standalone --nproc_per_node 8 run.py --config_path=configs/gpt2_train.json --save_dir=out_dir
 ```
 
 To train a model with an orthogonally rotated loss, you can run the following command:
 
 ```
-$ python run.py --config_path=configs/gpt2_rotated_train.json --save_dir=out_dir
+$ torchrun --standalone --nproc_per_node 8 run.py --config_path=configs/gpt2_rotated_train.json --save_dir=out_dir
 ```
 
 ## Evaluation
 
 You can use the following command to estimate the 1-1 norm of the Hessian of a trained GPT2 model:
 ```
-$ python run_jax.py --config_path=configs/gpt2_evaluate.json --load_dir=out_dir --save_dir=eval_dir
+$ torchrun --standalone --nproc_per_node 8 run_jax.py --config_path=configs/gpt2_evaluate.json --load_dir=out_dir --save_dir=eval_dir
 ```
 To evaluate the top eigenvalue, change `hessian.task` in `configs/gpt2_evaluate.yml` from `compute_11_norm` to `compute_eigvals`.
 
