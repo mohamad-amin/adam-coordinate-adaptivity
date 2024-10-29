@@ -15,7 +15,7 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from src.optimizer.adam_oeq import AdamOEQ
+from src.optimizer.adasgd import AdaSGD
 
 
 def new_gelu(x):
@@ -336,9 +336,9 @@ class GPT(nn.Module):
             extra_args = dict(fused=True) if use_fused else dict()
             optimizer = torch.optim.AdamW(optim_groups, lr=learning_rate, betas=betas, **extra_args)
             print(f"using fused AdamW: {use_fused}")
-        elif name == 'adamoeq':
+        elif name == 'adasgd' or name == 'adamoeq': # adamoeq is old name of adasgd
             betas = (optimizer_config['beta1'], optimizer_config['beta2'])
-            optimizer = AdamOEQ(optim_groups, lr=learning_rate, betas=betas)
+            optimizer = AdaSGD(optim_groups, lr=learning_rate, betas=betas)
         elif name == 'sgd':
             momentum = optimizer_config.get('momentum', 0.9)
             nesterov = optimizer_config.get('nesterov', False)

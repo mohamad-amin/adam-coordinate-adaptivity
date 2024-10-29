@@ -8,7 +8,7 @@ from torch.optim.optimizer import (Optimizer, _get_value, _dispatch_sqrt, Params
 from typing import List, Optional, Tuple, Union
 
 
-class AdamOEQ(Optimizer):
+class AdaSGD(Optimizer):
 
     def __init__(
             self,
