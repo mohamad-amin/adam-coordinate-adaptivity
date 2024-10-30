@@ -20,7 +20,7 @@ $ torchrun --standalone --nproc_per_node 8 run.py --config_path=configs/gpt2_rot
 
 You can use the following command to estimate the 1-1 norm of the Hessian of a trained GPT2 model:
 ```
-$ torchrun --standalone --nproc_per_node 8 run_jax.py --config_path=configs/gpt2_evaluate.json --load_dir=out_dir --save_dir=eval_dir
+$ python run_jax.py --config_path=configs/gpt2_evaluate.json --load_dir=out_dir --save_dir=eval_dir
 ```
 To evaluate the top eigenvalue, change `hessian.task` in `configs/gpt2_evaluate.yml` from `compute_11_norm` to `compute_eigvals`.
 
